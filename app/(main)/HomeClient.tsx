@@ -98,7 +98,7 @@ export default function HomeClient({
                                     </div>
 
                                     {/* 3. TEXT CONTENT */}
-                                    <p className="text-white font-bold leading-tight truncate">{food.name}</p>
+                                    <p className="text-white font-bold leading-tight truncate capitalize">{food.name}</p>
                                     <p className="text-white/40 text-[10px] mb-2 uppercase truncate">
                                         {food.restaurantName}
                                     </p>
@@ -133,7 +133,7 @@ export default function HomeClient({
 
                                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                                         <div className="absolute bottom-4 left-4">
-                                            <p className="text-white text-xl font-black">{res.name}</p>
+                                            <p className="text-white text-xl font-black capitalize">{res.name}</p>
                                             <p className="text-white/60 text-xs flex items-center gap-1">
                                                 <Utensils size={12} className="text-amber-500" /> {res._count.foods} items
                                             </p>

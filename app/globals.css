@@ -96,3 +96,9 @@ body {
     @apply border-amber-500/50 bg-white/[0.08] shadow-[0_0_15px_rgba(245,158,11,0.1)];
   }
 }
+/* app/globals.css */
+
+/* This targets any h3 or p that you use for names */
+.food-name, .restaurant-name {
+  text-transform: capitalize;
+}

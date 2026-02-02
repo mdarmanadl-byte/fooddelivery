@@ -56,7 +56,7 @@ const getLocalImage = (id: string) => {
 
   {/* Glass Overlay */}
   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-4">
-    <h3 className="text-white font-bold text-lg leading-tight mb-1">
+    <h3 className="text-white font-bold text-lg leading-tight mb-1 capitalize">
       {data.name}
     </h3>
     
@@ -75,7 +75,7 @@ const getLocalImage = (id: string) => {
       </div>
     ) : (
       <div className="flex flex-col gap-1">
-        <p className="text-white/60 text-xs italic">{data.address}</p>
+        <p className="text-white/60 text-xs italic capitalize">{data.address}</p>
         <Link 
           href={`/userboard/restaurant/${data.id}`}
           className="mt-2 text-center bg-white/10 backdrop-blur-md text-white text-xs py-2 rounded-md border border-white/10 hover:bg-white/20 transition-all"
