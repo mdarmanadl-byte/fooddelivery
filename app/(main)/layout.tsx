@@ -13,7 +13,7 @@ export default function RootLayout({
           <nav className="glass-nav px-2 py-2 flex justify-between items-center">
       {/* Logo Section */}
       <div className="text-white font-bold text-xl tracking-tight">
-        <Link href="/">Foodie<span className="text-amber-400">Hub</span></Link>
+        <Link href="/">FOOD<span className="text-amber-400">DASH</span></Link>
       </div>
 
       {/* Navigation Links */}
