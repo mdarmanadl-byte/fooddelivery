@@ -1,0 +1,10 @@
+"use server";
+
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
+export async function logout() {
+  const cookieStore = await cookies();
+  cookieStore.delete("user_id"); // This clears the session
+  redirect("/userboard"); // Send them back to login
+}

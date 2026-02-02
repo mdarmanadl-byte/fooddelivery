@@ -32,7 +32,7 @@ export default function DashNavbar({
 
         {/* LOGO */}
         <Link href="/dashboard" className="text-white font-bold text-xl">
-          FOOD<span className="text-amber-400">Dash</span>
+          FOOD<span className="text-amber-400">DASH</span>
         </Link>
 
         {/* RESTAURANT NAME */}

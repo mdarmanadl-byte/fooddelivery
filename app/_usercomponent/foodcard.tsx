@@ -5,9 +5,37 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "../(user-dash)/userboard/cart/cardcontext";
 export default function FoodCard({ type, data }: { type: 'restaurant' | 'food', data: any }) {
+  
   const isFood = type === 'food';
   const{addToCart}=useCart()
   const [loading, setLoading] = useState<boolean>(false)
+  // Inside your FoodCard component
+const placeholderImages = [
+  '/images/res1.jpg',
+  '/images/res2.jpg',
+  '/images/res3.jpg',
+  '/images/res4.jpg',
+  '/images/res5.jpg'
+];
+
+// This uses the ID to consistently pick one image from your local folder
+const getLocalImage = (id: string) => {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    // This "bit-shift" math scrambles the bits of the ID
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  
+  // 2. Use the absolute value to ensure it's positive
+  const index = Math.abs(hash);
+  
+  // 3. Return the image at that index
+  return placeholderImages[index % placeholderImages.length];
+};
+
+ 
+
+
   const handleAddClick = async (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigating to restaurant page if card is a link
     if (!isFood) return;
@@ -21,7 +49,7 @@ export default function FoodCard({ type, data }: { type: 'restaurant' | 'food', 
   
   {/* Image Background */}
   <img 
-    src={isFood ? data.image : 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'} 
+    src={isFood ? data.image :  getLocalImage(data.id)} 
     alt={data.name} 
     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
   />
