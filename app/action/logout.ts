@@ -6,5 +6,5 @@ import { redirect } from "next/navigation";
 export async function logout() {
   const cookieStore = await cookies();
   cookieStore.delete("user_id"); // This clears the session
-  redirect("/userboard"); // Send them back to login
+  redirect("/"); // Send them back to login
 }

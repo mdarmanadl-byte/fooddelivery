@@ -21,7 +21,9 @@ function userLogin
         })
         const data=await response.json()
         if (data.success===true){
+         
           route.push("/userboard")
+          
         }else{
             alert(data.message)
         }

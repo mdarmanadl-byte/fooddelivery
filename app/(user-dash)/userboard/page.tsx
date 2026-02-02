@@ -2,12 +2,14 @@ import FoodCard from "@/app/_usercomponent/foodcard";
 import { prisma } from "@/lib/db";
 import { capitalize } from "@/lib/utils";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 // app/(user-dash)/userboard/page.tsx
 export default async function Page({
   searchParams,
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
+
   const { query } = await searchParams;
 
   // 1. Fetch Restaurants (by name or city)
@@ -34,13 +36,23 @@ export default async function Page({
 
   const cookieStore = await cookies();
   const userId = cookieStore.get("user_id")?.value;
+   if (!userId) {
+    redirect("/user");
+  }
   const user = await prisma.user.findUnique({
     where: { id: userId },
     select: { city: true }
   });
   
   const userCity = user?.city || "Patna";
+ 
 
+  // 2. Now Prisma is safe because userId is guaranteed to exist
+
+  // 3. Second Safety: Cookie exists but user was deleted from DB
+  if (!user) {
+    redirect("/user");
+  }
   return (
     <div className="space-y-12 ml-4 mr-4 py-8">
       {/* ... (Keep your query header code) ... */}
