@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
+/* Force the background to black and text to white for the entire site */
+html, body {
+  background-color: #000000 !important;
+  color: #ffffff;
+  /* This ensures the scrollbar and system UI also stay dark */
+  color-scheme: dark;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
